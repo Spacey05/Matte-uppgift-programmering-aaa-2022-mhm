@@ -5,7 +5,7 @@ def medelvärde(x):
 lista = [1,7,2,4,3,1]
 medelvärde = medelvärde(lista)
 
-print ("medelvärde av lista", medelvärde)
+print ("medelvärde av lista =", medelvärde)
 
 def standardavvikelse(x):
     n = len(x)
@@ -17,4 +17,11 @@ def standardavvikelse(x):
 
 x = [10,11,12,13,14,15,16,17,18,19,20]
 
-print("standardavvikelse av lista", standardavvikelse(x))
+print("standardavvikelse av lista =", standardavvikelse(x))
+
+lista = [1,2,3,4,5,6,9,7]
+
+p=len(lista)-1
+v=lista[p] - lista[0]
+print ("variationsbredden av lista =",(v))
+
