@@ -1,12 +1,10 @@
 
-x = [1,2,3,4,5,6,7,8]
+
 def medelvärde(x):
     avg = sum(x) / len(x)
     return avg
 
-medelvärde = medelvärde(x)
-
-print ("medelvärde av lista =", medelvärde)
+#---------------------------------------------------------------
 
 def standardavvikelse(x):
     n = len(x)
@@ -15,14 +13,14 @@ def standardavvikelse(x):
     standardavvikelse = var ** 0.5
     return standardavvikelse
 
-print("standardavvikelse av lista =", standardavvikelse(x))
+#--------------------------------------------------------------
 
 def Variationsbredd(x):
     storlek = len(x)-1
     vb =sorted(x)[storlek] - sorted(x)[0]
     return vb
 
-print ("variationsbredden av lista =",Variationsbredd(x))
+#--------------------------------------------------------
 
 def medianen (x):
     storlek = len(x)
@@ -30,23 +28,54 @@ def medianen (x):
     if storlek % 2:
         return sorted(x)[med]
     return sum(sorted(x)[med - 1:med + 1]) / 2
-print ("medianen av lista=", medianen(x))
+
+
+#-------------------------------------------------------------
 
 def kvartilun(x):
     x.sort()
-    return x[0:int(len(x)/2)]
-print("undre kvartilen=",medianen(kvartilun(x)))
+
+    return x
+
+#---------------------------------------------------------------
 
 def kvartilup(x):
     x.sort()
-    return x[int(medianen(x)):-1]
+    return x
+
+#---------------------------------------------------------------
+
+def kvartilavstånd(x):
+    return 
+
+#---------------------------------------------------------------
+
+def residualerna(y):
+    w = y
+    for n in range(len(w)):
+        w[n][1] = w[n][1] - (k+m)
+    return w
+
+
+x = [1,2,3,4,5,6,7,8]
+
+y = [[5,3],[9,4],[3,2],[5,6]]
+
+k = 4
+m = 3
+
+print ("medelvärde av lista =", medelvärde(x))
+
+print("standardavvikelse av lista =", standardavvikelse(x))
+
+print ("variationsbredden av lista =",Variationsbredd(x))
+
+print("Medianen av listan=", medianen(x))
+
+print("undre kvartilen=",medianen(kvartilun(x)))
 
 print ("övrekvartilen=",medianen(kvartilup(x)))
 
-def kvartilavstånd(x):
-    up = medianen(kvartilup(x))
-    un = medianen(kvartilun(x))
-    return up - un
-
 print("kvartilavsståndet=", kvartilavstånd(x))
 
+print("residualerna=", residualerna(y))
