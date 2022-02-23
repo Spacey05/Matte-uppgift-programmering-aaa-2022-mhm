@@ -1,5 +1,5 @@
 
-x = [4,2,7,5,23,16,8,4]
+x = [1,2,3,4,5,6,7,8]
 def medelvärde(x):
     avg = sum(x) / len(x)
     return avg
@@ -31,3 +31,22 @@ def medianen (x):
         return sorted(x)[med]
     return sum(sorted(x)[med - 1:med + 1]) / 2
 print ("medianen av lista=", medianen(x))
+
+def kvartilun(x):
+    x.sort()
+    return x[0:int(len(x)/2)]
+print("undre kvartilen=",medianen(kvartilun(x)))
+
+def kvartilup(x):
+    x.sort()
+    return x[int(medianen(x)):-1]
+
+print ("övrekvartilen=",medianen(kvartilup(x)))
+
+def kvartilavstånd(x):
+    up = medianen(kvartilup(x))
+    un = medianen(kvartilun(x))
+    return up - un
+
+print("kvartilavsståndet=", kvartilavstånd(x))
+
