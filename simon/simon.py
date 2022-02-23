@@ -1,9 +1,10 @@
 
+x = [4,2,7,5,23,16,8,4]
 def medelvärde(x):
     avg = sum(x) / len(x)
     return avg
-lista = [1,7,2,4,3,1]
-medelvärde = medelvärde(lista)
+
+medelvärde = medelvärde(x)
 
 print ("medelvärde av lista =", medelvärde)
 
@@ -14,14 +15,19 @@ def standardavvikelse(x):
     standardavvikelse = var ** 0.5
     return standardavvikelse
 
-
-x = [10,11,12,13,14,15,16,17,18,19,20]
-
 print("standardavvikelse av lista =", standardavvikelse(x))
 
-lista = [1,2,3,4,5,6,9,7]
+def Variationsbredd(x):
+    storlek = len(x)-1
+    vb =sorted(x)[storlek] - sorted(x)[0]
+    return vb
 
-p=len(lista)-1
-v=lista[p] - lista[0]
-print ("variationsbredden av lista =",(v))
+print ("variationsbredden av lista =",Variationsbredd(x))
 
+def medianen (x):
+    storlek = len(x)
+    med = storlek // 2
+    if storlek % 2:
+        return sorted(x)[med]
+    return sum(sorted(x)[med - 1:med + 1]) / 2
+print ("medianen av lista=", medianen(x))
