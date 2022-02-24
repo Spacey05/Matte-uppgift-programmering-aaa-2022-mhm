@@ -56,12 +56,12 @@ def residualerna(y):
     return w
 
 
-x = [1,2,3,4,5,6,7,8,9,10,11,12]
+x = [11,2,4,5,3,4,7,8,9]
 
 y = [[5,3],[9,4],[3,2],[5,6]]
 
-k = 4
-m = 3
+k = 2
+m = 6
 
 print ("medelvärde av lista =", medelvärde(x))
 
