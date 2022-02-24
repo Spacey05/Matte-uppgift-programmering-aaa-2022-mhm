@@ -32,22 +32,21 @@ def medianen (x):
 
 #-------------------------------------------------------------
 
-def kvartilun(x):
+def kvartiler(x):
     x.sort()
-
-    return x
-
-#---------------------------------------------------------------
-
-def kvartilup(x):
-    x.sort()
-    return x
-
-#---------------------------------------------------------------
-
-def kvartilavstånd(x):
-    return 
-
+    median = medianen(x)
+    x1 = []
+    x2 = []
+    c=0
+    for i in x:
+        if x[c]< median:
+            x1.append(x[c])
+        elif x[c]> median:
+            x2.append(x[c])
+        c=c+1
+    print("undrekartil=", medianen(x1),"övrekvartilen=",medianen(x2))
+    print("kvartilavstånd",medianen(x2)-medianen(x1))
+    
 #---------------------------------------------------------------
 
 def residualerna(y):
@@ -57,7 +56,7 @@ def residualerna(y):
     return w
 
 
-x = [1,2,3,4,5,6,7,8]
+x = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 y = [[5,3],[9,4],[3,2],[5,6]]
 
@@ -72,10 +71,6 @@ print ("variationsbredden av lista =",Variationsbredd(x))
 
 print("Medianen av listan=", medianen(x))
 
-print("undre kvartilen=",medianen(kvartilun(x)))
-
-print ("övrekvartilen=",medianen(kvartilup(x)))
-
-print("kvartilavsståndet=", kvartilavstånd(x))
-
 print("residualerna=", residualerna(y))
+
+kvartiler(x)
