@@ -7,8 +7,6 @@ def medelvärde (x):
 
 medelvärde = medelvärde(x)
 
-print ("medelvärde av lista är", medelvärde)
-
 #Standardavvikelse av tal i given lista
 def standardavvikelse (x):
     n = len(x)
@@ -17,15 +15,11 @@ def standardavvikelse (x):
     standardavvikelse = var ** 0.5
     return standardavvikelse
 
-print("standardavvikelse av lista =", standardavvikelse(x))
-
 #Variationsbredd av tal i given lista
 def variationsbredd (x):
     storlek = len(x)-1
     vb = sorted(x)[storlek] - sorted(x)[0]
     return vb
-
-print("Variationsbredden är", variationsbredd(x))
 
 #Median av tal i given lista
 def median (x):
@@ -35,27 +29,30 @@ def median (x):
         return sorted(x)[med]
     return sum(sorted(x)[med - 1:med + 1]) / 2
 
-print ("medianen av listan=", median(x))
-
 #Kvartilerna i given lista
-def kvartilun(x):
+def kvartiler(x):
     x.sort()
-    return x[0:int(len(x)/2)]
-
-print ("undre kvartilen =", median(kvartilun(x)))
-
-def kvartilup (x):
-    x.sort()
-    return x[int(median(x)):-1]
-
-print ("övre kvartilen =", median(kvartilup(x)))
+    medianen = median(x)
+    x1 = []
+    x2 = []
+    c=0
+    for i in x:
+        if x[c]< medianen:
+            x1.append(x[c])
+        elif x[c]> medianen:
+            x2.append(x[c])
+        c=c+1
     
-def kvartilavstånd (x):
-    up = median(kvartilup(x))
-    un = median(kvartilun(x))
-    return up - un
+    print("undrekvartil=", median(x1),"övrekvartilen=",median(x2))
+    print("kvartilavstånd",median(x2)-median(x1))
 
-print ("kvartilavstånd =", kvartilavstånd(x))
- 
+
+
+#print för alla def
+print ("medelvärde av lista =", medelvärde)
+print("standardavvikelse av lista =", standardavvikelse(x))
+print("Variationsbredden =", variationsbredd(x))
+print ("medianen av listan =", median(x))
+kvartiler(x)
 
 
